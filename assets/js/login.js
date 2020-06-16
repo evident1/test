@@ -1,4 +1,16 @@
 $(function(){
+    
+    //--------------注册页面与登录页面切换-------------
+    $('#register').hide();
+    $('.go-regiter a').on('click',function(){
+        $('#register').show().prev().hide();
+    })
+    $('.go-login a').on('click',function(){
+        $('#login').show();
+        $('#register').hide();
+    })
+
+
     //-----------------完成表单验证--------------------
     //layui是全局对象
     //获取表单对象layui
@@ -21,6 +33,17 @@ $(function(){
             if(!reg.test(value)){
                 return  '密码必须是6位数字 '
             }
+        },
+
+        //密码重复输入验证
+        same:function(value){
+            //获取第一次密码内容
+          var  password = $('#reg-password').val()
+          if(password !== value){
+              return '两次密码不一致，请重新输入'
+          }
+        //   console.log(value);
+
         }
     
     })
@@ -48,4 +71,33 @@ $(function(){
         })
 
    })
+
+    // -------------------注册功能---------------- 
+    $('#register form').on('submit',function(e){
+        e.preventDefault()
+        // 把账号和密码提交给接口，从而完成注册
+        var data = $(this).serialize()
+        //调用接口提交给后台
+        $.ajax({
+            type:'post',
+            url:'http://btapi.ehomespace.com/api/reguser',
+            data:data,
+            success:function(ret){
+                // console.log('注册成功');
+                if(ret.status === 0){
+                    $('#login').show();
+                    $('#register').hide();
+                }
+            }
+
+        })
+
+    })  
+
+
+
+
+
+
+
 })
