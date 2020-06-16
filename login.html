@@ -4,23 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>大事件-登录页</title>
-    <link rel="stylesheet" href="layui/css/layui.css">
+    <link rel="stylesheet" href="assets/layui/css/layui.css">
+    <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <body>
-    <div>登录页</div>
-    <hr>
-    <button type="button" class="layui-btn layui-btn-normal layui-btn layui-btn-sm">一个标准的按钮</button>
-    <i class="layui-icon layui-icon-heart" style="font-size: 30px; color: coral;"></i> 
-    <hr>
-    <div class="layui-container">
-        <div class="layui-row">
-            <div class="layui-col-md9">
-              你的内容 9/12
+    <div class="layui-container header">
+        <img src="./assets/images/logo.png" alt="">
+    </div>
+    <!-- 顶部标题 -->
+    <div class=""></div>
+
+    <!-- 中间登录框 -->
+    <div class="center_box">
+        <!-- 表单区域 -->
+        <!-- 表单标题 -->
+        <div class="title">
+            <img src="./assets/images/login_title.png" alt="">
+        </div>
+        <!-- 表单内容登录密码 -->
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                
+                <i class="layui-icon layui-icon-username" ></i>  
+                  <input type="text" name="title" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input ">
             </div>
-            <div class="layui-col-md3">
-              你的内容 3/12
+            <!-- 密码 -->
+            <div class="layui-form-item">
+                <i class="layui-icon layui-icon-password" ></i>  
+                    <input type="text" name="title" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input ">
+                
             </div>
-          </div>
+            <div class="layui-form-item">
+                <button type="button" class="layui-btn layui-btn-fluid ">登录</button>
+            </div>
+        </form>
+
+        <!-- 去注册链接 -->
+        <div class="links">
+            <div class="regiter">去注册一个账号</div>
+        </div>
     </div>
 
 </body>
